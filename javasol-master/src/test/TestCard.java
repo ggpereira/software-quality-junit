@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
@@ -98,19 +99,63 @@ public class TestCard {
 	}
 	
 	@Test
-	public void test() {
+	public void testValue() {
+		//Cria uma série de cards e testa se inserção dos valores foi correta
 		ClassicCard card = new ClassicCard(Value.V_1, Suit.CLUB);
-		ClassicCard card1  = new ClassicCard(Value.V_2, Suit.DIAMOND);
-		ClassicCard card2 = new ClassicCard(Value.V_3, Suit.CLUB);
-		ClassicCard card3 = new ClassicCard(Value.V_4, Suit.DIAMOND);
-		ClassicCard card4 = new ClassicCard(Value.V_5, Suit.DIAMOND);
-		ClassicCard card5 = new ClassicCard(Value.V_6, Suit.HEART);
-		ClassicCard card6 = new ClassicCard(Value.V_7, Suit.CLUB);
-		ClassicCard card7 = new ClassicCard(Value.V_8, Suit.SPADE);
-		ClassicCard card8 = new ClassicCard(Value.V_9, Suit.HEART);
-		ClassicCard card9 = new ClassicCard(Value.V_ACE, Suit.DIAMOND);
-		ClassicCard card10 = new ClassicCard(Value.V_JACK, Suit.HEART);
-		ClassicCard card11 = new ClassicCard(Value.V_KING, Suit.DIAMOND);
-		ClassicCard card12 = new ClassicCard(Value.V_QUEEN, Suit.SPADE);
+		ClassicCard card2  = new ClassicCard(Value.V_2, Suit.DIAMOND);
+		ClassicCard card3 = new ClassicCard(Value.V_3, Suit.CLUB);
+		ClassicCard card4 = new ClassicCard(Value.V_4, Suit.DIAMOND);
+		ClassicCard card5 = new ClassicCard(Value.V_5, Suit.DIAMOND);
+		ClassicCard card6 = new ClassicCard(Value.V_6, Suit.HEART);
+		ClassicCard card7 = new ClassicCard(Value.V_7, Suit.CLUB);
+		ClassicCard card8 = new ClassicCard(Value.V_8, Suit.SPADE);
+		ClassicCard card9 = new ClassicCard(Value.V_9, Suit.HEART);
+		ClassicCard card10 = new ClassicCard(Value.V_ACE, Suit.DIAMOND);
+		ClassicCard card11 = new ClassicCard(Value.V_JACK, Suit.HEART);
+		ClassicCard card12 = new ClassicCard(Value.V_KING, Suit.DIAMOND);
+		ClassicCard card13 = new ClassicCard(Value.V_QUEEN, Suit.SPADE);
+		
+		Value[] actual = {card.getValue(), card2.getValue(), card3.getValue(), card4.getValue(), 
+				card5.getValue(), card6.getValue(), card7.getValue(), card8.getValue(), card9.getValue(), card10.getValue(), 
+				card11.getValue(), card12.getValue(), card13.getValue()};
+		
+		Value[] expected = {Value.V_1, Value.V_2, Value.V_3, Value.V_4, Value.V_5, Value.V_6, Value.V_7, 
+				Value.V_8, Value.V_9, Value.V_ACE, Value.V_JACK, Value.V_KING, Value.V_QUEEN};
+		
+	
+		
+		assertArrayEquals(expected, actual);
 	}
+	
+	@Test
+	public void testColorBlack() {
+		//Testa se a cor da carta é retornada corretamente
+		ClassicCard card  = new ClassicCard(Value.V_1, Suit.CLUB);
+		assertEquals(Color.black, card.getColor());
+	}
+	
+	@Test
+	public void testColorRed() {
+		ClassicCard card = new ClassicCard(Value.V_10, Suit.DIAMOND);
+		//Testa se a cor da carta é retornada corretamente
+		assertEquals(Color.red, card.getColor());
+	}
+	
+	@Test
+	public void testLegalTrue() {
+		ClassicCard card = new ClassicCard(Value.V_13, Suit.CLUB);
+		boolean legal = true;
+		card.setLegal(legal);
+		assertEquals(true, card.isLegal());
+	}
+	
+	@Test
+	public void testLegalFalse() {
+		//Testa se o valor retornado de isLegal é correto quando false
+		ClassicCard card = new ClassicCard(Value.V_11, Suit.DIAMOND);
+		boolean legal = false;
+		card.setLegal(legal);
+		assertEquals(false, card.isLegal());
+	}
+	
 }
