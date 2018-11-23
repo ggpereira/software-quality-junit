@@ -9,6 +9,8 @@ import java.awt.Point;
 import org.junit.Test;
 import com.fbergeron.card.*;
 
+//@Autor: Gabriel Gomes
+
 public class TestCard {
 	
 	@Test
@@ -157,5 +159,6 @@ public class TestCard {
 		card.setLegal(legal);
 		assertEquals(false, card.isLegal());
 	}
+	
 	
 }
