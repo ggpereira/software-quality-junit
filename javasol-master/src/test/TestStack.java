@@ -347,6 +347,7 @@ public class TestStack {
 	
 	@Test
 	public void testDirection() {
+		//Testa inserção e retorno em direction
 		Stack stack = new Stack();
 		stack.setSpreadingDirection(485);
 		assertEquals(485, stack.getSpreadingDirection());
