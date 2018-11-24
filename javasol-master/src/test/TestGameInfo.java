@@ -2,9 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
 
 import org.junit.Test;
 import com.fbergeron.solitaire.*;
@@ -16,7 +13,6 @@ public class TestGameInfo {
 	public void testGameInfoType() {
 		//testa valores ao instanciar GameInfo
 		GameInfo ginf = new GameInfo("asdhhc", 4689);
-		
 		assertEquals("asdhhc", ginf.getType());
 	}
 	
@@ -73,4 +69,5 @@ public class TestGameInfo {
 		assertEquals(-1, ginf.getSeed());
 		assertEquals("Random", ginf.getType());
 	}
+	
 }
