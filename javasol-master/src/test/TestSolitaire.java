@@ -12,6 +12,8 @@ import java.awt.PopupMenu;
 import org.junit.Test;
 import com.fbergeron.solitaire.*;
 
+//@Author: Gabriel Gomes
+
 public class TestSolitaire {
 	@Test(expected = NullPointerException.class)
 	public void testAddCompException() {
